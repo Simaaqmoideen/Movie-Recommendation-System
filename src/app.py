@@ -143,3 +143,5 @@ st.caption(
     "Offline collaborative filtering evaluation: run `python -m src.collab` after "
     "downloading MovieLens small with `python src/download_data.py`."
 )
+if os.getenv("TMDB_API_KEY"):
+    st.caption("Movie metadata provided by TMDB; this app is not endorsed or certified by TMDB.")

@@ -7,9 +7,9 @@
 - [x] Streamlit app and demo
 
 ## Quality gate
-- [ ] Runs from a clean clone using only the README commands
-- [ ] All tests pass
-- [ ] No secrets or large data files in Git
-- [ ] README includes screenshots or results
-- [ ] Final report completed (09_REPORT_TEMPLATE.md)
-- [ ] Demo recorded or presented
+- [x] Runs from a clean checkout using only the README commands
+- [x] All tests pass
+- [x] No secrets or large data files in Git
+- [x] README includes screenshots or results
+- [x] Final report completed (09_REPORT_TEMPLATE.md)
+- [x] Demo recorded or presented
