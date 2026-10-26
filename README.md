@@ -11,6 +11,7 @@ pip install -r requirements.txt
 python src/download_data.py       # downloads the allowed MovieLens small dataset
 python -m src.eda                  # data summary and EDA charts
 python src/recommender.py          # content-based sample demo
+python -m src.collab             # temporal CF evaluation vs baselines
 streamlit run src/app.py
 ```
 Run the tests with `python -m pytest -q` from this folder. The included sample works offline; MovieLens small is downloaded only for the collaborative model and evaluation. The EDA notebook is `notebooks/01_eda.ipynb`.

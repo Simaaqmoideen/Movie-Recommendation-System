@@ -35,4 +35,4 @@ The optional `overview` field used by the content recommender is present in the 
 - [x] Missing values counted: none in the downloaded ratings file.
 - [x] Duplicate `(userId, movieId)` pairs counted: none in the downloaded ratings file.
 - [x] Rating bounds reviewed: observed values are 0.5–5.0, matching the dataset scale.
-- [x] Train / test split strategy written down: each user's latest 20% of interactions, leaving at least one earlier interaction in training. Model fitting uses training data only.
+- [x] Train / test split strategy written down: each user's latest timestamp block at or after the 80th-percentile cutoff, with tied timestamps kept together. This yields 80,116 training rows and 20,720 held-out rows for the downloaded file; users without two distinct timestamps stay entirely in training. Model fitting and popularity counts use training data only.

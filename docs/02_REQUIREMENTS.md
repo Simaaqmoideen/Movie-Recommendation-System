@@ -4,9 +4,9 @@
 
 ### Must have
 - [x] Content-based recommender: 'movies similar to X' using TF-IDF over genres and overview
-- [ ] Collaborative filtering on user ratings (item-item or matrix factorization)
+- [x] Collaborative filtering on user ratings (item-item or matrix factorization)
 - [ ] Web UI: pick a movie or rate a few, get top-N recommendations
-- [ ] Offline evaluation (Precision@K / RMSE) on a held-out split
+- [x] Offline evaluation (Precision@K / RMSE) on a held-out split
 
 ### Should have
 - [ ] Hybrid score combining both approaches

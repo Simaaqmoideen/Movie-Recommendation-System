@@ -2,8 +2,8 @@
 
 ## Deliverables
 - [x] Notebook with EDA
-- [ ] Recommender module with tests
-- [ ] Evaluation report (table of metrics versus baselines)
+- [x] Recommender module with tests
+- [x] Evaluation report (table of metrics versus baselines)
 - [ ] Streamlit app and demo
 
 ## Quality gate
