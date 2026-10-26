@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title description">
+  <title id="title">Movie recommendation system illustration</title>
+  <desc id="description">An original illustration showing movie genre cards flowing through content and community signals into a ranked personalized movie list.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9a82ff"/>
+      <stop offset="1" stop-color="#5542bb"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9a7c"/>
+      <stop offset="1" stop-color="#cb4f64"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#73d9ce"/>
+      <stop offset="1" stop-color="#277c91"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="560" rx="28" fill="url(#background)"/>
+  <circle cx="245" cy="270" r="150" fill="#6954d8" opacity=".17" filter="url(#glow)"/>
+  <circle cx="914" cy="290" r="178" fill="#ed745d" opacity=".12" filter="url(#glow)"/>
+
+  <text x="64" y="83" fill="#a99aff" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="3">PERSONALIZED MOVIE DISCOVERY</text>
+  <text x="64" y="137" fill="#f6f4ff" font-family="Segoe UI,Arial,sans-serif" font-size="38" font-weight="700">A better next pick,</text>
+  <text x="64" y="183" fill="#f6f4ff" font-family="Segoe UI,Arial,sans-serif" font-size="38" font-weight="700">built from what you love.</text>
+  <text x="64" y="221" fill="#aab2c5" font-family="Segoe UI,Arial,sans-serif" font-size="17">Content signals meet community taste to rank your next watch.</text>
+
+  <g transform="translate(66 272)">
+    <rect width="152" height="182" rx="18" fill="#1a2030" stroke="#343b50"/>
+    <rect x="14" y="14" width="124" height="105" rx="12" fill="url(#violet)"/>
+    <circle cx="77" cy="58" r="25" fill="#f7e9b8" opacity=".95"/>
+    <path d="M35 104 70 69l22 24 17-17 24 28Z" fill="#35296f" opacity=".8"/>
+    <text x="16" y="145" fill="#f4f2ff" font-family="Segoe UI,Arial,sans-serif" font-size="14" font-weight="700">GENRE MATCH</text>
+    <text x="16" y="166" fill="#abb3c8" font-family="Segoe UI,Arial,sans-serif" font-size="12">Adventure · Family</text>
+  </g>
+  <g transform="translate(232 292)">
+    <rect width="152" height="162" rx="18" fill="#1a2030" stroke="#343b50"/>
+    <rect x="14" y="14" width="124" height="88" rx="12" fill="url(#teal)"/>
+    <path d="M32 83 69 40l22 24 17-16 30 35Z" fill="#144458" opacity=".85"/>
+    <circle cx="110" cy="36" r="12" fill="#f9e9b9"/>
+    <text x="16" y="128" fill="#f4f2ff" font-family="Segoe UI,Arial,sans-serif" font-size="14" font-weight="700">STORY MATCH</text>
+    <text x="16" y="148" fill="#abb3c8" font-family="Segoe UI,Arial,sans-serif" font-size="12">Themes · Overview</text>
+  </g>
+
+  <g transform="translate(418 335)" fill="none" stroke="#7d72bf" stroke-width="2">
+    <path d="M0 34h54c24 0 24-62 48-62h36"/>
+    <path d="M0 34h54c24 0 24 64 48 64h36"/>
+    <path d="M135-34 147-28l-12 6M135 92l12 6-12 6"/>
+  </g>
+  <g transform="translate(574 265)">
+    <rect width="206" height="178" rx="22" fill="#171d2a" stroke="#43405f"/>
+    <text x="22" y="35" fill="#f7f5ff" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="700">HYBRID RANKER</text>
+    <text x="22" y="61" fill="#9ca6bd" font-family="Segoe UI,Arial,sans-serif" font-size="12">Weighted signals</text>
+    <rect x="22" y="82" width="162" height="12" rx="6" fill="#30364a"/>
+    <rect x="22" y="82" width="103" height="12" rx="6" fill="url(#violet)"/>
+    <text x="22" y="116" fill="#c8c2ff" font-family="Segoe UI,Arial,sans-serif" font-size="12">Content similarity</text>
+    <rect x="22" y="131" width="162" height="12" rx="6" fill="#30364a"/>
+    <rect x="22" y="131" width="126" height="12" rx="6" fill="url(#coral)"/>
+    <text x="22" y="164" fill="#ffc1aa" font-family="Segoe UI,Arial,sans-serif" font-size="12">Community ratings</text>
+  </g>
+
+  <g transform="translate(842 224)">
+    <rect width="300" height="250" rx="22" fill="#191e2b" stroke="#393f53"/>
+    <text x="24" y="38" fill="#f7f5ff" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="700">YOUR NEXT WATCHES</text>
+    <text x="24" y="63" fill="#a1abc0" font-family="Segoe UI,Arial,sans-serif" font-size="12">Ranked to fit your taste</text>
+    <g font-family="Segoe UI,Arial,sans-serif">
+      <circle cx="39" cy="104" r="15" fill="#5e4cb6"/><text x="35" y="109" fill="#fff" font-size="12" font-weight="700">1</text>
+      <text x="65" y="101" fill="#f4f2ff" font-size="14" font-weight="600">Finding Nemo</text>
+      <text x="65" y="119" fill="#9ca7bc" font-size="11">Animation · Family</text>
+      <text x="240" y="108" fill="#a99aff" font-size="12" font-weight="700">0.61</text>
+      <path d="M24 135h252" stroke="#303648"/>
+      <circle cx="39" cy="165" r="15" fill="#bf5c64"/><text x="35" y="170" fill="#fff" font-size="12" font-weight="700">2</text>
+      <text x="65" y="162" fill="#f4f2ff" font-size="14" font-weight="600">The Lion King</text>
+      <text x="65" y="180" fill="#9ca7bc" font-size="11">Animation · Drama</text>
+      <text x="240" y="169" fill="#ffae98" font-size="12" font-weight="700">0.58</text>
+      <path d="M24 196h252" stroke="#303648"/>
+      <circle cx="39" cy="226" r="15" fill="#277c91"/><text x="35" y="231" fill="#fff" font-size="12" font-weight="700">3</text>
+      <text x="65" y="223" fill="#f4f2ff" font-size="14" font-weight="600">Monsters Inc</text>
+      <text x="65" y="241" fill="#9ca7bc" font-size="11">Animation · Comedy</text>
+      <text x="240" y="230" fill="#79d9cf" font-size="12" font-weight="700">0.54</text>
+    </g>
+  </g>
+
+  <text x="65" y="510" fill="#778197" font-family="Segoe UI,Arial,sans-serif" font-size="12">ILLUSTRATION · The live app uses the sample catalog and ranking methods documented below.</text>
+</svg>

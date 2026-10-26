@@ -2,7 +2,9 @@
 
 A small, reproducible movie discovery project with a Streamlit app, a content-based recommender, and an offline collaborative-filtering evaluation on MovieLens small.
 
-![MovieLens rating distribution](reports/rating-distribution.png)
+![Illustration of the personalized recommendation flow](assets/recommendation-hero.svg)
+
+<p align="center"><em>Content and community signals combine to rank a personalized watch list.</em></p>
 
 ## What it does
 
