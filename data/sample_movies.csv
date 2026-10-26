@@ -1,0 +1,16 @@
+movieId,title,genres,overview
+1,Toy Story,Animation|Children|Comedy,A cowboy doll is threatened by a new spaceman toy in a boy's bedroom
+2,Finding Nemo,Animation|Children|Comedy,A clownfish crosses the ocean to find his lost son
+3,The Lion King,Animation|Children|Drama,A young lion prince flees his kingdom and must return to claim his throne
+4,Monsters Inc,Animation|Children|Comedy,Monsters who power their city with children's screams meet a little girl
+5,The Matrix,Action|Sci-Fi,A hacker learns reality is a simulation and joins a rebellion against machines
+6,Inception,Action|Sci-Fi|Thriller,A thief enters dreams to plant an idea in a target's mind
+7,Interstellar,Adventure|Drama|Sci-Fi,Explorers travel through a wormhole to find a new home for humanity
+8,The Dark Knight,Action|Crime|Drama,Batman faces the Joker who pushes Gotham into chaos
+9,Pulp Fiction,Crime|Drama,Intertwined stories of hitmen a boxer and a gangster's wife in Los Angeles
+10,The Godfather,Crime|Drama,The aging patriarch of a crime dynasty transfers control to his reluctant son
+11,Forrest Gump,Comedy|Drama|Romance,A kind man with a low IQ witnesses and influences decades of American history
+12,Titanic,Drama|Romance,A young couple from different classes fall in love aboard the doomed ship
+13,The Notebook,Drama|Romance,A man and woman fall in love in the 1940s and their story is retold later
+14,Jurassic Park,Action|Adventure|Sci-Fi,Cloned dinosaurs escape and threaten visitors of a island theme park
+15,Avengers Endgame,Action|Adventure|Sci-Fi,Heroes assemble to undo the damage done by a powerful villain
