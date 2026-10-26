@@ -33,9 +33,9 @@ Blend scores (weighted). Handle new users with a short rating onboarding.
 ## Phase 5: UI and ship
 Streamlit app, caching, README, demo.
 
-- [ ] Task completed
-- [ ] Notes written in the project log
-- [ ] Changes committed
+- [x] Task completed
+- [x] Notes written in the project log
+- [x] Changes committed
 
 ## Project log
 | Date | What I did | Blockers | Next |
@@ -43,3 +43,4 @@ Streamlit app, caching, README, demo.
 | 2026-10-26 | Downloaded the allowed MovieLens small data, added a reproducible EDA notebook, quality summary, charts, and a Windows TLS-aware download path. | Python TLS trust failed in this environment; verified the official HTTPS download using Windows certificate validation. | Phase 2: content-based recommender. |
 | 2026-10-26 | Hardened TF-IDF content recommendations, including genre-only catalogs, normalized title lookup, stable ranking, and input validation; added regression tests. | None. | Phase 3: held-out collaborative filtering and metric baselines. |
 | 2026-10-26 | Added a sparse item-item CF model, per-user latest-timestamp holdout, training-only global/popularity baselines, RMSE and Precision@10 evaluation, and comparison chart. 26 tests pass. | None. | Phase 5 Must-have UI first; then revisit Phase 4 Should-have items. |
+| 2026-10-26 | Shipped the sample-catalog Streamlit UI, expanded README with setup, architecture diagram, EDA/evaluation plots and measured results; browser-checked the app and manually spot-checked five titles. 26 tests passed in 10.34s. | Streamlit's AppTest runner hung in this Windows environment, so UI behavior was verified in the live browser; core logic remains covered by automated tests. | Phase 4 Should-have hybrid ranking and new-user onboarding. |

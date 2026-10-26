@@ -17,3 +17,6 @@ reports/*.png
 .task-temp/
 .pytest-temp/
 .DS_Store
+
+.streamlit-*.log
+.streamlit-*.tmp

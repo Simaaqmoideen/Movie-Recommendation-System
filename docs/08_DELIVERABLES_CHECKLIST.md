@@ -4,7 +4,7 @@
 - [x] Notebook with EDA
 - [x] Recommender module with tests
 - [x] Evaluation report (table of metrics versus baselines)
-- [ ] Streamlit app and demo
+- [x] Streamlit app and demo
 
 ## Quality gate
 - [ ] Runs from a clean clone using only the README commands
