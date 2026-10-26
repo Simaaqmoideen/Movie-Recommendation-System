@@ -30,6 +30,8 @@
 
 The optional `overview` field used by the content recommender is present in the included sample but not in MovieLens `movies.csv`; content recommendations fall back to genre text when it is absent.
 
+TMDB posters and overviews are fetched only when `TMDB_API_KEY` is configured in the local `.env` file. The app sends the displayed title to TMDB for that lookup; with no key configured, no request is made. TMDB results are cached for one day in the running app and are not written into the repository.
+
 ## Data quality checklist
 - [x] Row count and column types checked: 100,836 ratings, 610 users, 9,724 rated titles, 9,742 catalog rows.
 - [x] Missing values counted: none in the downloaded ratings file.

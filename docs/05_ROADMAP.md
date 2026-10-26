@@ -26,9 +26,9 @@ Train/test split by time or per-user. Item-item cosine or SVD. Report RMSE and P
 ## Phase 4: Hybrid and cold start
 Blend scores (weighted). Handle new users with a short rating onboarding.
 
-- [ ] Task completed
-- [ ] Notes written in the project log
-- [ ] Changes committed
+- [x] Task completed
+- [x] Notes written in the project log
+- [x] Changes committed
 
 ## Phase 5: UI and ship
 Streamlit app, caching, README, demo.
@@ -44,3 +44,4 @@ Streamlit app, caching, README, demo.
 | 2026-10-26 | Hardened TF-IDF content recommendations, including genre-only catalogs, normalized title lookup, stable ranking, and input validation; added regression tests. | None. | Phase 3: held-out collaborative filtering and metric baselines. |
 | 2026-10-26 | Added a sparse item-item CF model, per-user latest-timestamp holdout, training-only global/popularity baselines, RMSE and Precision@10 evaluation, and comparison chart. 26 tests pass. | None. | Phase 5 Must-have UI first; then revisit Phase 4 Should-have items. |
 | 2026-10-26 | Shipped the sample-catalog Streamlit UI, expanded README with setup, architecture diagram, EDA/evaluation plots and measured results; browser-checked the app and manually spot-checked five titles. 26 tests passed in 10.34s. | Streamlit's AppTest runner hung in this Windows environment, so UI behavior was verified in the live browser; core logic remains covered by automated tests. | Phase 4 Should-have hybrid ranking and new-user onboarding. |
+| 2026-10-26 | Added 3–5 title rating onboarding, weighted content/community profile ranking with genre-only fallback, lazy cached MovieLens fit and optional cached TMDB poster/overview lookup. Browser-checked both UI modes; `python -m pytest -q`: 34 passed in 11.59s. | TMDB lookup remains optional and requires the user to supply a key in local `.env`. | Finish final report and clean-clone checks. |

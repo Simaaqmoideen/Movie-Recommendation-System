@@ -7,6 +7,7 @@ A small, reproducible movie discovery project with a Streamlit app, a content-ba
 ## What it does
 
 - Suggests similar movies using TF-IDF features from genres and, when available, overview text.
+- Personalizes results from 3–5 movie ratings with a weighted content/community hybrid when MovieLens small is available; it falls back to content-only rankings when it is not.
 - Runs a fast, local Streamlit demo using the included 15-title sample catalog. No API key or dataset download is needed for the app.
 - Evaluates sparse item-item collaborative filtering on a per-user chronological holdout and compares it with simple baselines.
 - Includes an EDA notebook, generated charts, reusable Python modules, and tests.
@@ -36,17 +37,20 @@ Results use a per-user latest-timestamp holdout: 80,116 training ratings and 20,
 
 ```mermaid
 flowchart LR
-    A[Included sample catalog] --> B[Content recommender]
+    A[Included sample catalog] --> B[Cached content recommender]
     C[MovieLens small CSVs] --> D[Chronological per-user split]
     D --> E[Training-only baselines]
     D --> F[Sparse item-item collaborative filtering]
-    B --> G[Streamlit movie picker]
+    B --> G[Streamlit movie picker and 3–5 title onboarding]
     E --> H[RMSE and Precision@10]
     F --> H
     H --> I[Evaluation chart and report]
+    G --> J[Hybrid profile ranker]
+    F --> J
+    K[Optional TMDB lookup via local .env key] --> G
 ```
 
-The app deliberately uses the small included catalog so it starts quickly and works offline. The larger MovieLens dataset is used by the EDA and collaborative evaluation commands. Raw data is downloaded locally and excluded from Git.
+The app uses the included catalog so its first page starts quickly and works offline. If MovieLens small is present, new-user ratings can also use community item-item scores where sample titles match MovieLens IDs. The same dataset is used by EDA and offline collaborative evaluation. Raw data is downloaded locally and excluded from Git.
 
 ## Quick start
 
@@ -68,7 +72,19 @@ python -m pip install -r requirements.txt
 streamlit run src/app.py
 ```
 
-The app opens in your browser. Choose a favorite title in the sidebar and set the number of suggestions. Similarity scores are relative rankings, not probabilities.
+The app opens in your browser. Choose a single favorite or select and rate 3–5 titles to build a profile, then set the number of suggestions. Similarity scores are relative rankings, not probabilities. Content features are cached across reruns. The collaborative profile model is loaded only when needed; download MovieLens small to enable community ratings.
+
+### Optional TMDB posters
+
+Posters and overviews are optional. Copy `.env.example` to `.env`, add your own TMDB API key, and restart Streamlit. Without a key, the app makes no TMDB requests.
+
+```powershell
+Copy-Item .env.example .env
+```
+
+```bash
+cp .env.example .env
+```
 
 ## Reproduce the data exploration and evaluation
 
@@ -102,6 +118,8 @@ reports/    generated charts
 
 `src/recommender.py` vectorizes movie genres and optional overview text with TF-IDF, then ranks candidates by cosine similarity. The selected movie is excluded from its own results. If overview text is missing, genre features are used. The included sample catalog makes this method easy to try without a download.
 
+`src/hybrid.py` builds a new-user profile from three to five sample-catalog ratings. It blends content relevance with community predictions from `src/collab.py` when the profile and candidate titles map to MovieLens IDs; unmatched titles use content rankings. The MovieLens model is loaded only when profile recommendations are requested. `src/tmdb.py` optionally fetches cached posters and overviews when `TMDB_API_KEY` is present in `.env`.
+
 ### Collaborative filtering and evaluation
 
 `src/collab.py` splits each user's ratings chronologically, holding out the latest timestamp block at or after the user's 80th percentile. Equal timestamps remain together; users without two distinct timestamps stay in training. The model learns sparse item-item similarities from training ratings only. Global-mean RMSE and training-only popularity Precision@10 provide simple reference baselines.
@@ -119,8 +137,8 @@ The tests cover catalog validation, title lookup, recommendation ranking, tempor
 ## Data and privacy
 
 - MovieLens small is provided by [GroupLens](https://grouplens.org/datasets/movielens/); it is downloaded with the repository script and is not committed.
-- The app needs no credentials and does not send user selections to an external service.
-- The optional TMDB data source is not required for the current app.
+- The core app needs no credentials and keeps ratings local to the current app session.
+- Optional TMDB metadata sends displayed title names to TMDB only if you configure a key.
 - See [`docs/07_RISKS_ETHICS.md`](docs/07_RISKS_ETHICS.md) for limitations and responsible-use notes.
 
 ## Project documentation

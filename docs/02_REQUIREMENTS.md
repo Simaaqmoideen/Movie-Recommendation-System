@@ -9,10 +9,10 @@
 - [x] Offline evaluation (Precision@K / RMSE) on a held-out split
 
 ### Should have
-- [ ] Hybrid score combining both approaches
-- [ ] Cold-start handling for new users (ask for 3-5 ratings)
-- [ ] Poster and metadata display via TMDB API
-- [ ] Caching of the similarity matrix
+- [x] Hybrid score combining both approaches
+- [x] Cold-start handling for new users (ask for 3-5 ratings)
+- [x] Poster and metadata display via TMDB API
+- [x] Caching of the similarity matrix
 
 ### Could have (stretch)
 - [ ] Explanations ('because you liked ...')

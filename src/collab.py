@@ -278,6 +278,52 @@ class ItemItemCF:
             }
         ).reset_index(drop=True)
 
+    def recommend_from_profile(
+        self, ratings: dict[int, float], n: int = 10
+    ) -> pd.DataFrame:
+        """Rank titles from an ephemeral new-user rating profile.
+
+        The community similarity matrix is fitted on the supplied training
+        ratings; this profile only supplies the new user's own item ratings.
+        """
+        if n < 1:
+            raise ValueError("n must be positive")
+        if not ratings:
+            raise ValueError("ratings must include at least one movie")
+        if any(not RATING_MIN <= value <= RATING_MAX for value in ratings.values()):
+            raise ValueError("profile ratings must be between 0.5 and 5.0")
+
+        known = [(self._movie_index[movie_id], value) for movie_id, value in ratings.items()
+                 if movie_id in self._movie_index]
+        if not known:
+            return pd.DataFrame(columns=["movieId", "predicted_rating"])
+
+        rated_positions = np.array([position for position, _ in known], dtype=int)
+        values = np.array([value for _, value in known], dtype=float)
+        seen_positions = set(rated_positions.tolist())
+        candidate_positions = np.fromiter(
+            (position for position in range(len(self.movies)) if position not in seen_positions),
+            dtype=int,
+        )
+        if not len(candidate_positions):
+            return pd.DataFrame(columns=["movieId", "predicted_rating"])
+
+        weights = self._similarity_columns[:, rated_positions][candidate_positions].tocsr()
+        weights.data = np.maximum(weights.data, 0)
+        weights.eliminate_zeros()
+        totals = np.asarray(weights.sum(axis=1)).ravel()
+        profile_mean = float(values.mean())
+        adjustments = (
+            np.asarray(weights @ (values - profile_mean)).ravel()
+            / (totals + RECOMMENDATION_SHRINKAGE)
+        )
+        scores = np.clip(profile_mean + adjustments, RATING_MIN, RATING_MAX)
+        movie_ids = self.movies[candidate_positions]
+        ordering = np.lexsort((movie_ids, -scores))[:n]
+        return pd.DataFrame(
+            {"movieId": movie_ids[ordering].astype(int), "predicted_rating": scores[ordering]}
+        ).reset_index(drop=True)
+
 
 def rmse(model: ItemItemCF, test: pd.DataFrame) -> float:
     """Evaluate all held-out ratings using per-user vectorized predictions."""

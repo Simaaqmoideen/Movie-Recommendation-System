@@ -128,6 +128,21 @@ def test_item_item_recommendations_reject_unknown_user_and_invalid_n():
         model.recommend_for_user(1, n=0)
 
 
+def test_item_item_recommends_from_ephemeral_new_user_profile():
+    model = ItemItemCF().fit(small_training_ratings())
+    result = model.recommend_from_profile({10: 5.0, 20: 4.0}, n=5)
+
+    assert result["movieId"].tolist() == [30]
+    assert not {10, 20} & set(result["movieId"])
+    assert 0.5 <= result.iloc[0]["predicted_rating"] <= 5.0
+
+
+def test_item_item_profile_rejects_bad_ratings():
+    model = ItemItemCF().fit(small_training_ratings())
+    with pytest.raises(ValueError, match="between 0.5 and 5.0"):
+        model.recommend_from_profile({10: 6.0})
+
+
 def test_rmse_evaluates_all_rows_in_test():
     train = small_training_ratings()
     test = pd.DataFrame(
