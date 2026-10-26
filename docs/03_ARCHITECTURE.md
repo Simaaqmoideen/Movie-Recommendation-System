@@ -26,7 +26,7 @@ MovieLens CSVs  ->  data/ (raw)  ->  src/data.py (clean, merge)
 ## Design decisions (fill in as you go)
 | Decision | Options considered | Choice | Why |
 |---|---|---|---|
-| | | | |
+| Content features | Genres only, genres + overview | TF-IDF on genres and optional overview | The included sample has overviews; MovieLens does not, so the model uses genres when overview is absent. |
 
 ## Module responsibilities
 See the files in `src/`. Keep logic (testable functions) separate from UI and scripts.
